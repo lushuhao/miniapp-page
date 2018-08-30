@@ -3,7 +3,8 @@ const fs = require('fs')
 const colors = require('ansi-colors')
 const log = require('fancy-log')
 
-const { name, version } = require('../package.json')
+const { name, bin, version } = require('../package.json')
+const bins = Object.keys(bin).join(' | ')
 
 function createFile() {
   const [dir, file] = program.args
@@ -72,7 +73,7 @@ program
   .version(version)
   .option('-v, --version', `show ${name} current version`)
   .arguments('<path> <file>')
-  .description(`${name} <path> <file> \n  create one dir to ./path\n  create four files to ./path/file, file.js、file.json、file.wxss、file.wxml`)
+  .description(`${bins} <path> <file> \n  create one dir to ./path\n  create four files to ./path/file, file.js、file.json、file.wxss、file.wxml`)
   .action(createFile)
 
 program.parse(process.argv)

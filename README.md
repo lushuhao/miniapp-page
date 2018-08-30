@@ -1,43 +1,46 @@
-# miniapp-create 
+# miniapp-page 
 创建小程序目录及四个文件
 
-[![npm](https://img.shields.io/npm/v/miniapp-create.svg)](https://www.npmjs.com/package/miniapp-create)
-[![npm](https://img.shields.io/npm/dt/miniapp-create.svg)](https://www.npmjs.com/package/miniapp-create)
-[![GitHub license](https://img.shields.io/github/license/lushuhao/miniapp-create.svg)](https://github.com/lushuhao/miniapp-create/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/miniapp-page.svg)](https://www.npmjs.com/package/miniapp-page)
+[![npm](https://img.shields.io/npm/dt/miniapp-page.svg)](https://www.npmjs.com/package/miniapp-page)
+[![GitHub license](https://img.shields.io/github/license/lushuhao/miniapp-page.svg)](https://github.com/lushuhao/miniapp-page/blob/master/LICENSE)
 
 ## 开始上手
 
 ### 安装
 
 ```shell
-npm i -g miniapp-create
+npm i -g miniapp-page
 ```
 
 ### 使用示例
 在命令行输入
 ```npm
-miniapp-create -h
+miniapp-page -h
+wx -h
 ```
-输出 user/test $ miniapp-create -h
+输出 user/test $ miniapp-page -h
 ```text
-Usage: miniapp-create [command] <options ...>
+Usage: miniapp-page [command] <options ...>
   
-miniapp-create <path> <file> 
+miniapp-page | wx <path> <file> 
 create one dir to ./path
 create four files to ./path/file, file.js、file.json、file.wxss、file.wxml
 
 Options:
 
   -V, --version  output the version number
-  -v, --version  show miniapp-create current version
+  -v, --version  show miniapp-page current version
   -h, --help     output usage information
 ```
 
 ```npm
-miniapp-create dir file
+miniapp-page dir file
+wx dir file
 ```
 ```npm
-miniapp-create dir/dir2 file
+miniapp-page dir/dir2 file
+wx dir/dir2 file
 ```
 
 命令行运行在/user/test目录下
