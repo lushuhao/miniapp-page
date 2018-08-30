@@ -1,0 +1,49 @@
+{
+  "name": "miniapp-create",
+  "version": "1.1.2",
+  "description": "生成小程序目录及四个文件",
+  "main": "bin/index.js",
+  "bin": "bin/index.js",
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "keywords": [
+    "miniapp",
+    "create"
+  ],
+  "author": "lushuhao <shahramlu@163.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lushuhao/miniapp-create.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lushuhao/miniapp-create/issues"
+  },
+  "homepage": "https://github.com/lushuhao/miniapp-create#readme",
+  "dependencies": {
+    "ansi-colors": "^3.0.5",
+    "commander": "^2.17.1",
+    "fancy-log": "^1.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "ansi-colors": "^3.0.5",
+    "del": "^3.0.0",
+    "eslint": "^5.4.0",
+    "fancy-log": "^1.3.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-uglify": "^3.0.1",
+    "run-sequence": "^2.2.1",
+    "stream-combiner2": "^1.1.1",
+    "gulp-eslint": "^5.0.0"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
