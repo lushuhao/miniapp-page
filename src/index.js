@@ -8,7 +8,7 @@ const bins = Object.keys(bin).join(' | ')
 
 function createFile() {
   const [dir, file] = program.args
-  const path = `./${dir}/${file}/`
+  const path = `./${dir}/`
   const fileList = createWxFileList(dir, file)
   extendDir(path)
 

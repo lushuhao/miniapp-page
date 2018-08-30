@@ -1,6 +1,6 @@
 {
   "name": "miniapp-page",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "生成小程序目录及四个文件",
   "main": "bin/index.js",
   "bin": {
