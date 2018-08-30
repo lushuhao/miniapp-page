@@ -49,6 +49,7 @@ wx dir a b
 会在当前目录下递归创建目录，并生成四个文件，如下
 
 ```text
+// wx dir
 创建文件夹： ./dir
 文件创建成功： dir.wxml
 文件创建成功： dir.json
@@ -58,6 +59,7 @@ wx dir a b
 
 
 ```text
+wx dir file
 创建文件夹： ./dir
 文件创建成功： file.wxml
 文件创建成功： file.json
@@ -66,6 +68,7 @@ wx dir a b
 ```
 
 ```text
+wx dir/dir2 file
 创建文件夹： ./dir
 创建文件夹： ./dir/dir2
 文件创建成功： file.wxml
@@ -74,6 +77,7 @@ wx dir a b
 文件创建成功： file.js
 ```
 ```text
+// wx dir a b
 创建文件夹： ./dir
 文件创建成功： a.wxml
 文件创建成功： a.json
