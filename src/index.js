@@ -7,17 +7,26 @@ const { name, bin, version } = require('../package.json')
 const bins = Object.keys(bin).join(' | ')
 
 function createFile() {
-  const [dir, file] = program.args
+  let [dir, ...fileArray] = program.args
   const path = `./${dir}/`
-  const fileList = createWxFileList(dir, file)
+  fileArray = fileArray[0] // 保留输入的可变参数
+  const fileName = dir.split('/').pop()
+  // 没有输入文件名，获取最后一个目录名
+  !fileArray.length && fileArray.push(fileName)
+
+  let fileList = fileArray.map(file => {
+    return createWxFileList(dir, file)
+  })
+
   extendDir(path)
 
-  fileList.forEach((item) => {
-    fs.writeFile(`${path}/${file}${item.ext}`, item.content, (err) => {
+  fileList = Array.prototype.concat(...fileList)
+  fileList.forEach(item => {
+    fs.writeFile(`${path}/${item.file}`, item.content, (err) => {
       if (err) {
         log(colors.red(err))
       }
-      log(colors.green('文件创建成功：'), `${file}${item.ext}`)
+      log(colors.green('文件创建成功：'), `${item.file}`)
     })
   })
 }
@@ -49,19 +58,19 @@ const createWxFileList = (dir, file) => {
   }
   return [
     {
-      ext: '.js',
+      file: `${file}.js`,
       content: jsContent
     },
     {
-      ext: '.json',
+      file: `${file}.json`,
       content: jsonContent
     },
     {
-      ext: '.wxml',
+      file: `${file}.wxml`,
       content: `<view class="${file}"></view>`
     },
     {
-      ext: '.wxss',
+      file: `${file}.wxss`,
       content: `.${file}{}`
     }
   ]
@@ -72,8 +81,8 @@ program.usage('[command] <options ...>')
 program
   .version(version)
   .option('-v, --version', `show ${name} current version`)
-  .arguments('<path> <file>')
-  .description(`${bins} <path> <file> \n  create one dir to ./path\n  create four files to ./path/file, file.js、file.json、file.wxss、file.wxml`)
+  .arguments('<path> [file...]')
+  .description(`${bins} <path> [file] \n  create one dir to ./path\n  create four files to ./path/file, file.js、file.json、file.wxss、file.wxml`)
   .action(createFile)
 
 program.parse(process.argv)

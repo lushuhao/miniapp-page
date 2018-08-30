@@ -14,16 +14,17 @@ npm i -g miniapp-page
 ```
 
 ### 使用示例
-在命令行输入
+在命令行输入 
+如果wx没有被占用，可以直接简写wx
 ```npm
 miniapp-page -h
 wx -h
 ```
-输出 user/test $ miniapp-page -h
+输出 user/test $ wx -h
 ```text
-Usage: miniapp-page [command] <options ...>
+Usage: wx [command] <options ...>
   
-miniapp-page | wx <path> <file> 
+miniapp-page | wx <path> [file]
 create one dir to ./path
 create four files to ./path/file, file.js、file.json、file.wxss、file.wxml
 
@@ -34,18 +35,27 @@ Options:
   -h, --help     output usage information
 ```
 
+路径必须输入，文件名可选，不传以路径的最后一个目录名
+可传入多个文件名，批量生成
 ```npm
-miniapp-page dir file
+wx dir  // = wx dir dir
 wx dir file
-```
-```npm
-miniapp-page dir/dir2 file
 wx dir/dir2 file
+wx dir a b 
 ```
 
 命令行运行在/user/test目录下
 
 会在当前目录下递归创建目录，并生成四个文件，如下
+
+```text
+创建文件夹： ./dir
+文件创建成功： dir.wxml
+文件创建成功： dir.json
+文件创建成功： dir.wxss
+文件创建成功： dir.js
+```
+
 
 ```text
 创建文件夹： ./dir
@@ -62,6 +72,17 @@ wx dir/dir2 file
 文件创建成功： file.json
 文件创建成功： file.wxss
 文件创建成功： file.js
+```
+```text
+创建文件夹： ./dir
+文件创建成功： a.wxml
+文件创建成功： a.json
+文件创建成功： a.wxss
+文件创建成功： a.js
+文件创建成功： b.wxml
+文件创建成功： b.json
+文件创建成功： b.wxss
+文件创建成功： b.js
 ```
 
 ## 开源证书
