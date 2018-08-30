@@ -40,7 +40,9 @@ miniapp-create dir file
 miniapp-create dir/dir2 file
 ```
 
-命令行运行在/user/test目录下，会在当前目录下递归创建目录，并生成四个文件，如下
+命令行运行在/user/test目录下
+
+会在当前目录下递归创建目录，并生成四个文件，如下
 
 ```text
 创建文件夹： ./dir
@@ -59,7 +61,6 @@ miniapp-create dir/dir2 file
 文件创建成功： file.json
 文件创建成功： file.wxss
 文件创建成功： file.js
-
 ```
 
 ## 开源证书
