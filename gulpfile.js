@@ -4,6 +4,7 @@ const del = require('del')
 const colors = require('ansi-colors')
 const log = require('fancy-log')
 
+const exec = require('child_process').exec
 const combiner = require('stream-combiner2')
 const runSequence = require('run-sequence')
 const eslint = require('gulp-eslint')
@@ -29,8 +30,7 @@ const handleError = (err) => {
 
 gulp.task('js', () => {
   const combined = combiner.obj([
-    gulp.src(`${src}/**/*.js`),
-
+    gulp.src([`${src}/**/*.js`, `!${src}/**`]),
     eslint({fix:true}),
     eslint.format(),
     gulpIf(isFixed, gulp.dest(src)), // 修复后的文件放回原处
@@ -49,9 +49,17 @@ gulp.task('js', () => {
   combined.on('error', handleError)
 })
 
-gulp.task('watch', () => {
+gulp.task('link', (cb) => {
+  exec('npm link', (err, stdout, stderr) => {
+    console.log(stdout)
+    console.log(stderr)
+    cb(err)
+  })
+})
+
+gulp.task('watch', ['build'], () => {
   ['js'].forEach(v => {
-    gulp.watch(`${src}/**/*.${v}`, [v])
+    gulp.watch(`${src}/**/*.${v}`, [v, 'link'])
   })
 })
 
@@ -60,5 +68,5 @@ gulp.task('clean', () => {
 })
 
 gulp.task('build', ['clean'], () => {
-  runSequence('js')
+  runSequence('js', 'link')
 })
