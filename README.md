@@ -16,12 +16,12 @@ npm i -g miniapp-page
 ### 使用示例
 在命令行输入 
 如果wx没有被占用，可以直接简写wx
-```npm
+```shell
 miniapp-page -h
 wx -h
 ```
 输出 user/test $ wx -h
-```text
+```shell
 Usage: wx [command] <options ...>
   
 miniapp-page | wx <path> [file]
@@ -37,7 +37,7 @@ Options:
 
 路径必须输入，文件名可选，不传以路径的最后一个目录名
 可传入多个文件名，批量生成
-```npm
+```shell
 wx dir  // = wx dir dir
 wx dir file
 wx dir/dir2 file
@@ -48,7 +48,7 @@ wx dir a b
 
 会在当前目录下递归创建目录，并生成四个文件，如下
 
-```text
+```shell
 创建文件夹： ./dir
 文件创建成功： dir.wxml
 文件创建成功： dir.json
@@ -57,7 +57,7 @@ wx dir a b
 ```
 
 
-```text
+```shell
 创建文件夹： ./dir
 文件创建成功： file.wxml
 文件创建成功： file.json
@@ -65,7 +65,7 @@ wx dir a b
 文件创建成功： file.js
 ```
 
-```text
+```shell
 创建文件夹： ./dir
 创建文件夹： ./dir/dir2
 文件创建成功： file.wxml
@@ -73,7 +73,7 @@ wx dir a b
 文件创建成功： file.wxss
 文件创建成功： file.js
 ```
-```text
+```shell
 创建文件夹： ./dir
 文件创建成功： a.wxml
 文件创建成功： a.json
