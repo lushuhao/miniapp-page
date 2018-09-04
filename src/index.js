@@ -24,7 +24,7 @@ function createFile() {
   fileList = Array.prototype.concat(...fileList)
   fileList.forEach(item => {
     if (path.extname(item.file) === '.js') {
-      fs.copyFile(path.resolve(__dirname, '../src', item.content), path.resolve(dirPath, item.file), (err) => {
+      fs.copyFile(path.resolve(__dirname, item.content), path.resolve(dirPath, item.file), (err) => {
         handleError(err, item)
       })
     } else {

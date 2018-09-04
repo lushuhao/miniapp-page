@@ -30,7 +30,7 @@ const handleError = (err) => {
 
 gulp.task('js', () => {
   const combined = combiner.obj([
-    gulp.src([`${src}/**/*.js`, `!${src}/**`]),
+    gulp.src(`${src}/**/*.js`),
     eslint({fix:true}),
     eslint.format(),
     gulpIf(isFixed, gulp.dest(src)), // 修复后的文件放回原处
