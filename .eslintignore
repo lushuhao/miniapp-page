@@ -1,4 +1,4 @@
 gulpfile.js
 /node_modules/*
 lib
-src/init
+src/template

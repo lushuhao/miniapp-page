@@ -30,8 +30,8 @@ const handleError = (err) => {
 
 gulp.task('js', () => {
   const combined = combiner.obj([
-    gulp.src(`${src}/**/*.js`),
-    eslint({fix:true}),
+    gulp.src([`${src}/**/*.js`, `!${src}/template/**`]),
+    eslint({ fix: true }),
     eslint.format(),
     gulpIf(isFixed, gulp.dest(src)), // 修复后的文件放回原处
     eslint.failAfterError(),
@@ -47,6 +47,11 @@ gulp.task('js', () => {
   ])
 
   combined.on('error', handleError)
+})
+
+gulp.task('copy', () => {
+  gulp.src(`${src}/template/**`, {base: `${src}`})
+    .pipe(gulp.dest(dist))
 })
 
 gulp.task('link', (cb) => {
@@ -68,5 +73,5 @@ gulp.task('clean', () => {
 })
 
 gulp.task('build', ['clean'], () => {
-  runSequence('js', 'link')
+  runSequence(['copy', 'js'])
 })

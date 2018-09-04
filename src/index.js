@@ -70,10 +70,10 @@ const createWxFileList = (dir, file) => {
   const componentTest = /component/i
   log(colors.cyanBright('生成小程序组件？'), colors.red(componentTest.test(dir)))
   if (componentTest.test(dir)) {
-    jsContent = './init/component.js'
+    jsContent = './template/component.js'
     jsonContent = '{\n  "component": true\n}'
   }else {
-    jsContent = './init/page.js'
+    jsContent = './template/page.js'
     jsonContent = `{\n  "navigationBarTitleText": "${file}"\n}`
   }
   return [
