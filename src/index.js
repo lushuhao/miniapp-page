@@ -15,7 +15,6 @@ const mpTypes = require('./config')
  */
 function createFile() {
   const [dir, ...fileRestArray] = program.args
-  console.log(dir, fileRestArray)
 
   const dirPath = dir.startsWith('./') ? dir : `./${dir}/`
   const fileArray = fileRestArray[0] // 保留输入的可变参数
@@ -116,8 +115,8 @@ function inputFileName() {
   const questions = {
     type: 'input',
     name: 'fileName',
-    message: '请输入生成模版文件名称? file',
-    default: 'index',
+    message: '请输入生成模版文件名称?',
+    default: path.basename(program.args[0]) || 'index',
   }
   inquirer
     .prompt(questions)
