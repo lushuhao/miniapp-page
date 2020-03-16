@@ -1,16 +1,12 @@
 # miniapp-page 
 创建小程序目录及四个文件
 
-[![npm](https://img.shields.io/npm/v/miniapp-page.svg)](https://www.npmjs.com/package/miniapp-page)
-[![npm](https://img.shields.io/npm/dt/miniapp-page.svg)](https://www.npmjs.com/package/miniapp-page)
-[![GitHub license](https://img.shields.io/github/license/lushuhao/miniapp-page.svg)](https://github.com/lushuhao/miniapp-page/blob/master/LICENSE)
-
 ## 开始上手
 
 ### 安装
 
 ```shell script
-npm i -g miniapp-page
+npm i -g @xmly/miniapp-page
 ```
 
 ### 使用示例
@@ -84,7 +80,3 @@ Component({
 })
 
 ```
-
-## 开源证书
-
-[**The MIT License**](http://opensource.org/licenses/MIT).
